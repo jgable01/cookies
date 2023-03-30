@@ -38,10 +38,6 @@ body {
   display: none;
 }
 
-.show {
-  display: block;
-}
-
 .popUp {
   position: fixed;
   top: 0;
