@@ -14,8 +14,21 @@
   </head>
 
   <body>
-    <div class="container">
-
+    <div class="container popUp">
+      <div class="modal">
+        <i class="fa-solid fa-xmark exit" onclick="closeScore()"></i>
+        <p class="head">Cookies</p>
+        <p class="description">
+          We use cookies to improve your experience on our website. By browsing
+          this website, you agree to our use of cookies.
+        </p>
+        <button type="button" class="button accept" onclick="acceptCookies()">
+          Accept
+        </button>
+        <button type="button" class="button settings" onclick="openSettings()">
+          Settings
+        </button>
+      </div>
     </div>
   </body>
 </html>
