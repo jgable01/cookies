@@ -7,7 +7,11 @@
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 "use strict";
-const modal = document.querySelector(".popUp");
+const modal = document.querySelector(".modal");
+const modalSettings = document.querySelector(".modalSettings");
+const acceptBtn = document.querySelector(".accept");
+const settingsBtn = document.querySelector(".settings");
+
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
   Utils
@@ -48,16 +52,27 @@ const deleteCookie = (name) => {
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-document.cookie = `items=7; path=/; max-age=15; SameSite=Lax`;
-
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
   Popup Modal
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-// Get the modal
+// Accept Cookies
 
+function acceptCookies() {
+  document.cookie = `browser=Test; path=/; operating-system=test2; screen-width=test3;
+  screen-height=test4; SameSite=Lax`;
+  modal.classList.add("hide");
+}
 
+function openSettings() {
+  modal.classList.add("hide");
+  modalSettings.classList.remove("hide");
+  modalSettings.classList.add("show");
+}
 
-
+function savePref() {
+  modalSettings.classList.remove("show");
+  modalSettings.classList.add("hide");
+}

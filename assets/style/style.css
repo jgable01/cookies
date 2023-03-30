@@ -26,6 +26,22 @@ body {
   justify-content: center;
 }
 
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
 .popUp {
   position: fixed;
   top: 0;
@@ -41,11 +57,13 @@ body {
 .head {
   font-size: clamp(1.5rem, 2vw, 2.5rem);
   font-weight: normal;
-  letter-spacing: 0.8rem;
+  letter-spacing: 0.45rem;
   margin-bottom: 2.6rem;
+  color: #fff;
 }
 
-.modal {
+.modal,
+.modalSettings {
   width: 40rem;
   margin: 0 1.5rem;
   padding: 2.5rem 1.3rem;
@@ -54,29 +72,6 @@ body {
   background: var(--app-header-bg);
   position: relative;
   overflow: hidden;
-}
-
-.exit {
-  width: 2.5rem;
-  height: 2.5rem;
-  border: 1px solid var(--border-color);
-  border-radius: 100%;
-  color: inherit;
-  font-size: 1.7rem;
-  position: absolute;
-  top: 0.5rem;
-  right: 0rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  transition: 0.2s;
-}
-
-.exit:hover,
-.exit:focus {
-  cursor: pointer;
-  transform: translateY(-0.2rem);
 }
 
 .button {
@@ -114,4 +109,68 @@ body {
 .settings:hover,
 .settings:focus {
   background-color: #fff;
+}
+
+.toggleSwitch {
+  grid-template-columns: 7fr 2fr;
+  margin: 40px 15px;
+  width: 100%;
+  height: 100%;
+}
+
+.switch {
+  position: relative;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }

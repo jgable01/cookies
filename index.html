@@ -16,7 +16,6 @@
   <body>
     <div class="container popUp">
       <div class="modal">
-        <i class="fa-solid fa-xmark exit" onclick="closeScore()"></i>
         <p class="head">Cookies</p>
         <p class="description">
           We use cookies to improve your experience on our website. By browsing
@@ -27,6 +26,40 @@
         </button>
         <button type="button" class="button settings" onclick="openSettings()">
           Settings
+        </button>
+      </div>
+      <div class="modalSettings hide">
+        <p class="head">Settings</p>
+        <div class="toggleSwitch grid">
+          <p>Browser</p>
+          <label class="switch browser">
+            <input type="checkbox" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="toggleSwitch grid">
+          <p>Operating System</p>
+          <label class="switch os">
+            <input type="checkbox" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="toggleSwitch grid">
+          <p>Screen Width</p>
+          <label class="switch sw">
+            <input type="checkbox" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="toggleSwitch grid">
+          <p>Screen Height</p>
+          <label class="switch sh">
+            <input type="checkbox" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <button type="button" class="button save" onclick="savePref()">
+          Save Preferences
         </button>
       </div>
     </div>
