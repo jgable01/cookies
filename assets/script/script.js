@@ -65,7 +65,6 @@ const deleteCookie = (name) => {
 // Accept Cookies
 
 function displayModal() {
-  console.log(document.cookie);
   if (
     getCookie("browser") ||
     getCookie("operatingSystem") ||
@@ -73,7 +72,8 @@ function displayModal() {
     getCookie("ScreenHeight") ||
     getCookie("enabled")
   ) {
-    console.log("cookies");
+    console.log("Cookies are present");
+  displayCookies();
   } else {
     console.log("no cookies");
     modal.classList.remove("hide");
@@ -86,10 +86,7 @@ function acceptCookies() {
   setCookie("operatingSystem", getOS(), 15);
   setCookie("ScreenWidth", window.screen.availWidth, 15);
   setCookie("ScreenHeight", window.screen.availHeight, 15);
-  /*   document.cookie = `operatingSystem=${getOS()}; path=/; SameSite=Lax`;
-  document.cookie = `ScreenWidth=${window.screen.availWidth}; path=/; SameSite=Lax`;
-  document.cookie = `ScreenHeight=${window.screen.availHeight}; path=/; SameSite=Lax`; */
-  console.log(document.cookie);
+  displayCookies();
   modal.classList.add("hide");
 }
 
@@ -101,8 +98,25 @@ function openSettings() {
 function savePref() {
   modalSettings.classList.add("hide");
   enabledCookies();
-  console.log(document.cookie);
-  console.log(toggleOS.checked);
+  displayCookies();
+}
+
+function displayCookies() {
+  if(getCookie('browser') !== null) {
+    console.log(`Browser: ${getCookie('browser')}`);
+  }
+  if(getCookie('operatingSystem') !== null) {
+    console.log(`OS: ${getCookie('operatingSystem')}`);
+  }
+  if(getCookie('ScreenWidth') !== null) {
+    console.log(`SW: ${getCookie('ScreenWidth')}`);
+  }
+  if(getCookie('ScreenHeight') !== null) {
+    console.log(`SH: ${getCookie('ScreenHeight')}`);
+  }
+  if(getCookie('enabled') !== null) {
+    console.log(`Enabled: ${getCookie('enabled')}`);
+  }
 }
 
 function enabledCookies() {
@@ -124,7 +138,6 @@ function enabledCookies() {
     !toggleSW.checked &&
     !toggleSH.checked
   ) {
-    console.log("enabled");
     setCookie("enabled", "false", 15);
   }
 }
