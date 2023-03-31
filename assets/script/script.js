@@ -147,6 +147,7 @@ function acceptCookies() {
 function openSettings() {
   modal.classList.add("hide");
   modalSettings.classList.remove("hide");
+  defaultPref();
 }
 
 function savePref() {
@@ -200,6 +201,13 @@ function enabledCookies() {
   ) {
     setCookie("enabled", "false", 15);
   }
+}
+
+function defaultPref() {
+  toggleBrowser.checked = true;
+  toggleOS.checked = true;
+  toggleSW.checked = true;
+  toggleSH.checked = true;
 }
 
 
